@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?><!--Created with JFLAP 7.1.--><structure>
+	<type>mealy</type>
+	<automaton>
+		<!--The list of states.-->
+		<state id="2" name="q2">
+			<x>68.0</x>
+			<y>429.0</y>
+			<label>Puerta obstruida</label>
+		</state>
+		<state id="3" name="q3">
+			<x>394.0</x>
+			<y>431.0</y>
+			<label>Puerta cerrando</label>
+		</state>
+		<state id="4" name="q1">
+			<x>430.0</x>
+			<y>173.0</y>
+			<label>abriendo</label>
+		</state>
+		<state id="5" name="q0">
+			<x>69.0</x>
+			<y>179.0</y>
+			<label>Puerta quieta</label>
+			<initial/>
+		</state>
+		<!--The list of transitions.-->
+		<transition>
+			<from>4</from>
+			<to>4</to>
+			<read>proximidad</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>proximidad</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>proximidad</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>abierta</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>abierta</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>4</to>
+			<read>proximidad</read>
+			<transout>abrir_puerta</transout>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>3</to>
+			<read>no_laser</read>
+			<transout>cerrar_puerta</transout>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>4</to>
+			<read>espera</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>2</from>
+			<to>2</to>
+			<read>espera</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>3</to>
+			<read>espera</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>3</to>
+			<read>espera</read>
+			<transout>cerrar_puerta</transout>
+		</transition>
+		<transition>
+			<from>5</from>
+			<to>5</to>
+			<read>laser</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>4</to>
+			<read>laser</read>
+			<transout/>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>2</to>
+			<read>laser</read>
+			<transout>advertir_obstaculo</transout>
+		</transition>
+		<transition>
+			<from>3</from>
+			<to>5</to>
+			<read>no abierta</read>
+			<transout>puerta_quieta</transout>
+		</transition>
+		<transition>
+			<from>4</from>
+			<to>5</to>
+			<read>abierta</read>
+			<transout>puerta_quieta</transout>
+		</transition>
+	</automaton>
+</structure>
